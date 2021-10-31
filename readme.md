@@ -1,4 +1,4 @@
-# PROJECT CINEMATRON
+# CS50x Final Project - CINEMATRON
 Ahoy! Welcome to Cinematron, a simplistic website for movies and tv shows fans.
 I chose to build this web application because one of the things I found very interesting in Finance was the API. Since it wasn't taught in class, I had to learn from scratch. In this web application, I built seven different API URLs. I also expanded my knowledge of python, jinja, CSS, and HTML.
 Languages:
