@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: Since it compares every two numbers, it can go over and over again through the entire array when it's random. Having a good chane to be the slowest. But it has a good chance to be the fastast at already sorted numbers.
+
+sort2 uses: Merge sort
+
+How do you know?: By deduction since I already know what the 1 and 3 are.
+
+sort3 uses: Selection sort
+
+How do you know?: Is the slowest of all looking at the big picture.
