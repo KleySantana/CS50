@@ -6,6 +6,7 @@ This course’s philosophy on academic honesty is best stated as “be reasonabl
 
 ## My considerations of the course
 It's a great course, David is probably the best Professor I've seen.
+
 Like many of those taking this class, I discovered a passion: programming.
 
 It's been said that, when it comes to work, everyone has a call. I'm not sure I believe that but the building blocks supporting it may be true:
