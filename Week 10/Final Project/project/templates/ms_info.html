@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+
+
+{% block main %}
+  <!-- Movie Card from https://freefrontend.com/css-movie-cards/-->
+
+  <div id="movie-card-list" style="text-align: left">
+    <h1 class="jumbotron" style="margin: 0px">{{ ms.title }}</h1>
+    <div class="movie-card" style="background: url({{ ms.image }}); background-size: cover">
+      <div class="movie-card__overlay"></div>
+
+      <div class="movie-card__share">
+        {% if ms.id not in check %}
+          <form action="/favorite" method="post">
+            <input class="form-control" name="imdb_id" type="text" style="display: none" value="{{ ms.id }}">
+              <button class="movie-card__icon" type="submit"><i class="material-icons">&#xf06f</i></button>
+            </input>
+          {% else %}
+          <form action="/remove" method="post">
+            <input class="form-control" name="imdb_id" type="text" style="display: none" value="{{ ms.id }}">
+              <button class="movie-card__icon" type="submit"><i class="material-icons" style="color: gold;">&#xe838</i></button>
+            </input>
+          </form>
+          {% endif %}
+      </div>
+      <div class="movie-card__content" style="text-align: left">
+        <div class="movie-card__header" style="margin-top: 8px; margin-bottom: 8px">
+          <h4 class="movie-card__info">Stars: {{ ms.stars }}</h4>
+          <p></p>
+          <h4 class="movie-card__info">({{ ms.year }}) {{ ms.genres }}</h4>
+
+        </div>
+        <section style="overflow-y: auto; height: 180px">
+          <p class="movie-card__desc" style="margin-top: 6px">{{ ms.plot }}</p>
+        </section>
+      <div class="movie-card__desc" style="position: relative; margin-top: 6px">
+        <a href="{{ ms.trailer }}" target="_blank"><button class="btn btn-outline movie-card__button" type="button">Watch Trailer</button></a>
+      </div>
+      </div>
+    </div>
+   </div>
+
+  <p></p>
+
+  <h3 style="color: white; text-transform: capitalize">Similar Titles</h3>
+  <section>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for title in similars %}
+        <div class="col-md-3" style="margin-top: 15px">
+          <div class="card" style="width: 15rem;">
+            {% if title.id not in check %}
+            <form action="/favorite" method="post">
+              <input class="form-control" name="imdb_id" type="text" style="display: none" value="{{ title.id }}">
+                <button class="movie-card__icon" type="submit"><i class="material-icons">&#xf06f</i></button>
+              </input>
+            {% else %}
+            <form action="/remove" method="post">
+              <input class="form-control" name="imdb_id" type="text" style="display: none" value="{{ title.id }}">
+                <button class="movie-card__icon" type="submit"><i class="material-icons" style="color: gold;">&#xe838</i></button>
+              </input>
+            </form>
+            {% endif %}
+              <img src="{{ title.image }}" class="card-img-top" alt="Movie Poster">
+              <div class="card-body">
+                <h5 class="card-title">{{ title.title }}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <form action="/info" method="post">
+                    <input class="form-control" name="imdb_id" type="text" style="display: none" value="{{ title.id }}">
+                    <button type="submit" class="btn btn-primary" style="width: 100%">More</button>
+                  </form>
+                </li>
+              </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

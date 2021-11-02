@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Profile
+{% endblock %}
+
+{% block main %}
+<!-- https://freefrontend.com/bootstrap-profiles/ -->
+    {% if not gravatar %}
+    <section style="width: 100%" class="section about-section gray-bg" id="about">
+    <div class="counter" style="text-align: left">
+        <div class="row">
+            <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                    <h6><a href="/delete"><button class="btn btn-outline-erase my-2 my-sm-0">Erase My Account</button></a></h6>
+                    <p class="m-0px font-w-600"></p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" colspan="10">
+                <div class="count-data text-center" style="width: 500px">
+                    <h6 class="count h2" style="color: white">Register at <a href="https://gravatar.com/" target="_blank">Gravatar</a> <p>for a full profile page</p></h6>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" style="margin-left: 200px">
+                <div class="count-data text-center">
+                    <a href="/mylist" style="text-decoration: none">
+                        <h6 class="count h2" style="color: white">{{ number }}</h6>
+                        <p class="m-0px font-w-600 theme-color">Favorites</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    {% else %}
+
+    <section style="width: 100%" class="section about-section gray-bg" id="about">
+        <div class="container" style="text-align: left">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6">
+                    <div class="about-text go-to">
+                        <h3 class="theme-color">{{ gravatar.displayName }}</h3>
+                        <h6 class="theme-color lead"></h6>
+                        <p>{{ gravatar.aboutMe }}</p>
+                        <div class="row about-list">
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <label>Residence</label>
+                                    <p>{{ gravatar.currentLocation }}</p>
+                                </div>
+                                <div class="media">
+                                    <label>E-mails</label>
+                                    {% for email in gravatar.emails %}
+                                      <p>{{ email.value }}</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="media">
+                                    <a href="{{ gravatar.profileUrl }}" target="_blank"><p>Gravatar Profile</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" style="text-align: center">
+                    <div class="about-avatar">
+                        <img src="{{ gravatar.thumbnailUrl }}?s=315" title="" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="counter">
+                <div class="row">
+                    <div class="col-6 col-lg-3">
+                        <div class="count-data text-center">
+                            <h6><a href="/delete"><button class="btn btn-outline-erase my-2 my-sm-0">Erase My Account</button></a></h6>
+                            <p class="m-0px font-w-600"></p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="count-data text-center">
+                            <h6 class="count h2" data-to="150" data-speed="150"></h6>
+                            <p class="m-0px font-w-600"></p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="count-data text-center">
+                            <h6 class="count h2" data-to="850" data-speed="850"></h6>
+                            <p class="m-0px font-w-600"></p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="count-data text-center">
+                            <a href="/mylist" style="text-decoration: none">
+                                <h6 class="count h2" style="color: white">{{ number }}</h6>
+                                <p class="m-0px font-w-600 theme-color">Favorites</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endif %}
+{% endblock %}

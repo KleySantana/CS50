@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Warning!
+{% endblock %}
+
+{% block main %}
+    <h1>Warning!</h1>
+    <p><span>This action cannot be undone. Are you sure?</span></p>
+
+    <form action="/delete" method="post">
+        <div class="form-group">
+            <button class="btn btn-primary" value="confirmation" name="confirmation" style="background-color: red" type="submit">Erase Account</button>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" value="cancel" name="cancel" style="background-color: green" type="submit">Keep Account</button>
+        </div>
+    </form>
+{% endblock %}

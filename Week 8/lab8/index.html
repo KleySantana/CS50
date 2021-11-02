@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Musical Trivia!</title>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector("#feedback1").innerHTML = 'Correct!';
+                });
+
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector("#feedback1").innerHTML = 'Incorrect';
+                    });
+                }
+
+                document.querySelector("#answer").addEventListener('click', function() {
+                    let input = document.querySelector("input");
+                    if (input.value === 'Dm') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector("#feedback2").innerHTML = 'Correct!';
+                    }
+                    else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector("#feedback2").innerHTML = 'Incorrect';
+                    }
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Keys & Chords</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <h3>How a note is called when it's a semitone below?</h3>
+                <hr>
+                    <button class="incorrect">Sharp</button>
+                    <button class="correct">Flat</button>
+                    <button class="incorrect">Diminished</button>
+
+                    <p id="feedback1"></p>
+
+                </hr>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <h3>What is the saddest chord?</h3>
+                <h5>
+                <p>Hints: (1) There is a right answer, and (2) use cipher notes</p>
+                </h5>
+                <hr>
+
+                <input autocomplete="off" type="text"></input>
+                <button id="answer">Answer</button>
+                <p id="feedback2"></p>
+                </hr>
+            </div>
+        </div>
+    </body>
+    <footage>
+        <h5>
+            <div class="foot">
+                <a href='https://br.freepik.com/vetores/fundo' style='color: #fff'>Vector created by starline - br.freepik.com</a>
+            </div>
+        </h5>
+    </footage>
+</html>
