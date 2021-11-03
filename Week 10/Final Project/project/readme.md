@@ -7,7 +7,6 @@ Languages:
 - CSS
 - Python
 - SQLite3
-- Jinja2
 
 APIs:
 - [IMDB](https://imdb-api.com/api)
@@ -15,6 +14,7 @@ APIs:
 
 Technologies:
 - Flask
+- Jinja
 - Bootstrap
 - Google Fonts: Material Icons
 - Third-party cards. (Credit attribuition in HTML pages)
