@@ -19,7 +19,7 @@ Technologies:
 - Google Fonts: Material Icons
 - Third-party cards. (Credit attribuition in HTML pages)
 
-#### Video Demo:
+#### Video Demo: https://youtu.be/dw-6M4zBNpw
 #### Description:
 On the index page, you'll see the bests movies and TV shows ever released per [IMDB's](https://www.imdb.com/) rating.
 
